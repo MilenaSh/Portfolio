@@ -1,29 +1,34 @@
 import React from 'react';
 import './App.css';
-import {Layout, Header, Textfield, Drawer, Navigation, Content} from 'react-mdl';
+import {Layout, Header, Drawer, Navigation, Content} from 'react-mdl';
+import Main from './components/main';
+import {Link} from 'react-router-dom';
 
 function App() {
   return (
-<div style={{height: '300px', position: 'relative'}}>
-    <Layout fixedHeader fixedDrawer>
-        <Header title="Title">
-            <Textfield
-                value=""
-                onChange={() => {}}
-                label="Search"
-                expandable
-                expandableIcon="search"
-            />
+
+<div className="demo-big-content">
+    <Layout>
+        <Header title="Title" scroll>
+            <Navigation>
+            <Link to="/resume">Resume</Link>
+                <Link to="/aboutme">About Me</Link>
+                <Link to="/projects">Projects</Link>
+                <Link to="/contact">Contact</Link>
+            </Navigation>
         </Header>
         <Drawer title="Title">
             <Navigation>
-                <a href="/">Link</a>
-                <a href="/">Link</a>
-                <a href="/">Link</a>
-                <a href="/">Link</a>
+            <Link to="/resume">Resume</Link>
+                <Link to="/aboutme">About Me</Link>
+                <Link to="/projects">Projects</Link>
+                <Link to="/contact">Contact</Link>
             </Navigation>
         </Drawer>
-        <Content />
+        <Content>
+            <div className="page-content"/>
+            <Main/>
+        </Content>
     </Layout>
 </div>
   );
